@@ -1,0 +1,5 @@
+Bundle-SymbolicName: vuejs-web
+Bundle-Version: 2.4.2
+-includeresource: META-INF/resources/js=build/js
+Liferay-JS-Config: /META-INF/resources/js/config.js
+Web-ContextPath: /vuejs-web

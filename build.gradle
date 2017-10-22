@@ -1,0 +1,7 @@
+allprojects {
+    plugins.withId("com.liferay.node") {
+        node.download = true
+        node.global = true
+        node.nodeDir = "${rootProject.buildDir}/node"
+    }
+}

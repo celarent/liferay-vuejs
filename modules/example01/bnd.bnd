@@ -1,0 +1,4 @@
+Bundle-Name: example01
+Bundle-SymbolicName: example01
+Bundle-Version: 1.0.0
+Export-Package: example01.constants

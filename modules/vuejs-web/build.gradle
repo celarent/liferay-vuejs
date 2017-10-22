@@ -1,0 +1,44 @@
+buildscript {
+	repositories {
+		maven {
+			url "https://cdn.lfrs.sl/repository.liferay.com/nexus/content/groups/public"
+		}
+	}
+	dependencies {
+		classpath group: "com.liferay", name: "com.liferay.gradle.util", version: "latest.release"
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.node", version: "latest.release"
+	}
+}
+
+import com.liferay.gradle.util.copy.StripPathSegmentsAction
+import com.liferay.gradle.plugins.node.tasks.ExecuteNodeTask
+
+boolean isProd = project.hasProperty("prod")
+
+configurations {
+	vue
+}
+
+task buildVue(type: Copy)
+String vueVersion = "2.4.2"
+File jsDestinationDir = file("build/js")
+
+buildVue {
+	eachFile new StripPathSegmentsAction(6)
+	from {
+		zipTree(configurations.vue.singleFile)
+	}
+	String vueFile = isProd ? "vue.min.js" : "vue.js"
+	include "META-INF/resources/webjars/vue/${vueVersion}/dist/${vueFile}"
+	includeEmptyDirs = false
+	rename("vue\\.min\\.js", "vue.js")
+	into new File(jsDestinationDir, "vue")
+}
+
+classes {
+	dependsOn buildVue
+}
+
+dependencies {
+	vue group: "org.webjars.npm", name: "vue", transitive: false, version: vueVersion
+}

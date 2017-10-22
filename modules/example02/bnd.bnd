@@ -1,0 +1,5 @@
+Bundle-SymbolicName: example02
+Bundle-Version: 1.0.0
+-includeresource: META-INF/resources/js=build/js
+Liferay-JS-Config: /META-INF/resources/js/config.js
+Web-ContextPath: /example02
