@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "Liferay Vue.js Example 02",
   "private": true,
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
     "css-loader": "^0.28.4",
+    "eslint": "^4.9.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "java-properties-loader": "^0.2.0",
     "json-loader": "^0.5.4",
@@ -21,4 +24,3 @@
     "webpack-merge": "^4.1.0"
   }
 }
-
